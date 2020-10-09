@@ -8,12 +8,14 @@
  */
 
 
+namespace NHS_PARTNERS\SetUp;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Currently plugin version.
  */
-define( 'NHSJOBS_VERSION', '1.0.0' );
+define( 'NHSPARTNERS_VERSION', '1.0.0' );
 
 
 /**
@@ -26,7 +28,7 @@ define( 'NHSJOBS_VERSION', '1.0.0' );
  * @return string
  */
 
-function nhspartners_get_plugin_directory() {
+function get_plugin_directory() {
     return __DIR__;
 }
 
@@ -40,7 +42,7 @@ function nhspartners_get_plugin_directory() {
  * @return string
  */
 
-function nhspartners_get_plugin_url() {
+function get_plugin_url() {
     static $plugin_url;
 
     if ( empty( $plugin_url ) ) {
@@ -52,3 +54,5 @@ function nhspartners_get_plugin_url() {
 
 
 require_once 'admin/admin.php';
+
+require_once 'public/public.php';

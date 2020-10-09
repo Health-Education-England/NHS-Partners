@@ -1,0 +1,7 @@
+.wp-block-nhs-partners-partner-logo.nhsuk-grid-column-one-quarter{
+	padding-bottom: 40px;
+
+	&:nth-child(5n){
+		clear: left;
+	}
+}

@@ -1,0 +1,17 @@
+[data-type="nhs-partners/partners-logos"]{
+
+	.block-list-appender{
+		clear: both;
+	}
+
+	.nhsuk-grid-column-one-quarter.partners{
+		flex-direction: column;
+	}
+}
+
+[data-type="nhs-partners/partner-logo"]{
+	
+	&:nth-child(5n){
+		clear: left;
+	}
+}
