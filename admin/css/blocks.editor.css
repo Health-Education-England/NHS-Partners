@@ -5,5 +5,16 @@
   -ms-flex-direction: column;
       flex-direction: column; }
 
-[data-type="nhs-partners/partner-logo"]:nth-child(5n) {
-  clear: left; }
+[data-type="nhs-partners/partner-logo"] {
+  float: left;
+  width: 25%; }
+  [data-type="nhs-partners/partner-logo"]:nth-child(5n) {
+    clear: left; }
+  [data-type="nhs-partners/partner-logo"] .block-editor-url-input__button-modal {
+    width: 380px;
+    position: relative;
+    z-index: 9999999; }
+
+.edit-post-visual-editor .nhsuk-grid-column-one-quarter {
+  width: 100% !important;
+  float: none; }
