@@ -3,7 +3,7 @@
 namespace NHS_PARTNERS\ADMIN\ScriptsStyles;
 
 
-add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\admin_scripts_styles' );
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\admin_scripts_styles', 20 );
 
 
 function admin_scripts_styles(){

@@ -4,6 +4,9 @@
 // import icon from './icon';
 import './editor.scss';
 import './style.scss';
+
+import { get, omit, pick } from 'lodash';
+
 /**
  * Internal block libraries
  */
@@ -18,6 +21,8 @@ const {
 	MediaReplaceFlow,
 } = wp.blockEditor;
 
+const { isBlobURL } = wp.blob;
+
 const {
 	Fragment
 } = wp.element;
@@ -30,7 +35,7 @@ export default registerBlockType(
     {
         title: __( 'Partners Logos', 'nhs_partners' ),
         description: __( 'Add Partners Logos.', 'nhs_partners' ),
-        category: 'common',
+        category: 'nhsblocks',
         icon: 'image-filter',
         keywords: [
             __( 'Logos Partners Links', 'nhs_partners' ),
@@ -109,6 +114,10 @@ registerBlockType(
             __( 'Logos', 'nhs_partners' ),
         ],
         attributes: {
+            id: {
+                type: 'sting',
+                default: undefined
+            },
             url: {
                 type: 'string',
             },
@@ -121,15 +130,30 @@ registerBlockType(
             }
         },
         edit: props => {
-            const { attributes: { url, projectURL }, className, setAttributes } = props;
-            
+            const { attributes: { id, url, projectURL, alt }, className, setAttributes } = props;
+
+            const isTemporaryImage = ( el ) => ! el.id && isBlobURL( el.url );
+           
 
             const onSelectMedia = function( el ){
 
-				setAttributes( { 
-					url: el.sizes.medium ? el.sizes.medium.url : el.url,
-					alt: el.alt
-				} );
+                let isUploading = isTemporaryImage( el );
+
+
+                if( ! isUploading ){
+
+                    const imageProps =  get( el, [ 'sizes', 'medium', 'url' ] ) ||
+                                    get( el, [ 'media_details', 'sizes', 'medium', 'source_url' ] ) ||
+                                    el.url;                    
+
+                    setAttributes( { 
+                        url: imageProps,
+                        alt: el.alt
+                    } );
+
+                }                    
+
+				
 			};
 
 

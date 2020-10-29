@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: NHS Partners Block
- * Plugin URI: https://github.com/Health-Education-England/nhs-jobs
+ * Plugin URI: https://github.com/Health-Education-England/NHS-Partners
  * Description: NHS Partners Block Plugin
  * Version: 1.0.0
  * Author: VeryTwisty
