@@ -5,7 +5,7 @@
 import './editor.scss';
 import './style.scss';
 
-import { get, omit, pick } from 'lodash';
+import get from 'lodash/get';
 
 /**
  * Internal block libraries
